@@ -1,0 +1,46 @@
+ 
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: []
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files: []
+
+scrape_configs:
+  - job_name: 'spring-actuator'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9091']
+        labels:
+          application: "Main application"
+
+  - job_name: 'spring-actuator1'
+    metrics_path: '/actuator/async/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9094']
+        labels:
+          application: "Async app"
+
+  - job_name: 'spring-actuator2'
+    metrics_path: '/actuator/sync1/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9092']
+        labels:
+          application: "Sync1 application"
+
+  - job_name: 'spring-actuator3'
+    metrics_path: '/actuator/sync2/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9093']
+        labels:
+          application: "Sync2 application"
