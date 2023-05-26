@@ -1,0 +1,35 @@
+
+
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'spring-actuator'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9091']
+      labels:
+      application:"Main application"
+  - job_name: 'spring-actuator'
+    metrics_path: '/actuator/async/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9094']
+      labels:
+      application:"Async app"
+  - job_name: 'spring-actuator'
+    metrics_path: '/actuator/sync1/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9092']
+      labels:
+      application:"Sync1 application"
+  - job_name: 'spring-actuator'
+    metrics_path: '/actuator/sync2/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9093']
+      labels:
+      application:"sync2 application"
+
