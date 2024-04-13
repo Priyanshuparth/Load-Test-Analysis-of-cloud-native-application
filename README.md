@@ -49,7 +49,7 @@ The project aims to provide clear results from load tests and performance analys
 1. **Clone the Repository:**
    - Clone the repository to your local machine:
      ```
-     git clone https://github.com/Priyanshuparth/Load-Test-Analysis-of-cloud-native-application.git
+     git clone git@github.com:Priyanshuparth/Load-Test-Analysis-of-cloud-native-application.git
      ```
 
 2. **Navigate to Each Component's Directory:**
